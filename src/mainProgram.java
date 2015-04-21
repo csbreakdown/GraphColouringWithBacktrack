@@ -16,14 +16,17 @@ public class mainProgram {
 	static int[][] G = {{1,1,0,1},{1,1,1,1},{0,1,1,1},{1,1,1,1}};
 		
 	public static void graphColour(int k){
-		if(k == 4){
-			System.out.println(Arrays.toString(x));
-			return;
-		}
 		for(int c = 1; c<=m; c++){
 			if(isSafe(k,c)){
 				x[k] = c;
-				graphColour(k+1);
+				if((k+1)<n){
+					graphColour(k+1);
+				}
+				else {
+					System.out.println(Arrays.toString(x));
+					return;
+				}
+				
 			}
 		}
 	}
